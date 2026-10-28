@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Krabindra Personal Blog</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #fafafa;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Red banner */
+    .banner {
+      background: #c8102e;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .banner h1 {
+      font-size: clamp(1.6rem, 5vw, 2.8rem);
+      letter-spacing: 0.02em;
+    }
+
+    /* Menu */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+    nav a {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #c8102e;
+      border: 2px solid #c8102e;
+      border-radius: 6px;
+      padding: 10px 22px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover,
+    nav a:focus-visible {
+      background: #c8102e;
+      color: #fff;
+      outline: none;
+    }
+
+    /* Middle: image slider */
+    main { flex: 1; width: 100%; padding: 24px 0; }
+
+    /* 4 images in a row (2 on tablets, 1 on phones) */
+    .slider {
+      --per: 4;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: #fafafa;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+    .slide {
+      position: relative;
+      flex: 0 0 calc(100% / var(--per));
+      aspect-ratio: 4 / 3;
+      border: 6px solid #fafafa;   /* gap between images */
+      overflow: hidden;
+    }
+    @media (max-width: 900px) { .slider { --per: 2; } }
+    @media (max-width: 500px) { .slider { --per: 1; } }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 30px 12px 12px;
+      color: #fff;
+      font-size: 1.1rem;
+      text-align: center;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+    }
+
+    .arrow {
+      position: absolute;
+      top: calc(50% - 20px);
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+    .arrow:hover,
+    .arrow:focus-visible { background: #c8102e; outline: none; }
+    .prev { left: 14px; }
+    .next { right: 14px; }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 0 4px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border: 2px solid #c8102e;
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+    }
+    .dot.active { background: #c8102e; }
+
+    /* Blue footer banner */
+    footer {
+      background: #0a3d91;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      line-height: 1.7;
+    }
+    footer h2 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="banner">
+    <h1>Krabindra Personal Blog</h1>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#blog">Blog</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main id="home">
+    <div class="slider" aria-label="Photo slideshow">
+      <div class="slides" id="slides">
+
+        <!-- To use your own photos, replace each src with the file name, e.g. src="photo1.jpg" -->
+        <div class="slide">
+          <img alt="Snowy mountains" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cdefs%3E%3ClinearGradient id='s' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2387b9e8'/%3E%3Cstop offset='1' stop-color='%23e6f2fb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23s)'/%3E%3Cpolygon points='0,600 0,380 180,230 300,340 480,150 680,340 820,240 1000,360 1200,260 1200,600' fill='%236b86a8'/%3E%3Cpolygon points='480,150 440,196 470,188 490,206 520,190' fill='%23ffffff'/%3E%3Cpolygon points='820,240 790,275 815,268 835,282 850,270' fill='%23ffffff'/%3E%3Cpolygon points='0,600 0,470 250,400 520,480 800,410 1200,490 1200,600' fill='%234a6b4f'/%3E%3C/svg%3E">
+          <div class="caption">Mountains</div>
+        </div>
+
+        <div class="slide">
+          <img alt="Sunset over hills" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cdefs%3E%3ClinearGradient id='s' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23512b6e'/%3E%3Cstop offset='0.6' stop-color='%23e8704a'/%3E%3Cstop offset='1' stop-color='%23ffd27a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23s)'/%3E%3Ccircle cx='600' cy='400' r='90' fill='%23fff3c4'/%3E%3Cpolygon points='0,600 0,420 200,330 380,430 600,360 820,450 1000,340 1200,420 1200,600' fill='%232d1b3d'/%3E%3C/svg%3E">
+          <div class="caption">Sunset</div>
+        </div>
+
+        <div class="slide">
+          <img alt="Calm lake" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cdefs%3E%3ClinearGradient id='s' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2387b9e8'/%3E%3Cstop offset='1' stop-color='%23e6f2fb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23s)'/%3E%3Cpolygon points='0,360 200,220 360,320 560,180 760,320 960,230 1200,340 1200,360' fill='%235f7fa3'/%3E%3Crect y='360' width='1200' height='240' fill='%233d7ea6'/%3E%3Crect x='300' y='410' width='320' height='6' fill='%23ffffff' opacity='0.4'/%3E%3Crect x='650' y='450' width='260' height='6' fill='%23ffffff' opacity='0.4'/%3E%3Crect x='150' y='500' width='200' height='6' fill='%23ffffff' opacity='0.4'/%3E%3C/svg%3E">
+          <div class="caption">Lake</div>
+        </div>
+
+        <div class="slide">
+          <img alt="Night sky" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Crect width='1200' height='600' fill='%230b1d3a'/%3E%3Ccircle cx='980' cy='110' r='45' fill='%23f5f1d0'/%3E%3Ccircle cx='150' cy='90' r='2.5' fill='%23fff'/%3E%3Ccircle cx='320' cy='160' r='2' fill='%23fff'/%3E%3Ccircle cx='480' cy='70' r='3' fill='%23fff'/%3E%3Ccircle cx='640' cy='140' r='2' fill='%23fff'/%3E%3Ccircle cx='790' cy='60' r='2.5' fill='%23fff'/%3E%3Ccircle cx='260' cy='250' r='2' fill='%23fff'/%3E%3Ccircle cx='720' cy='230' r='2' fill='%23fff'/%3E%3Cpolygon points='0,600 0,420 220,300 400,400 620,280 840,410 1040,320 1200,400 1200,600' fill='%231b2f55'/%3E%3C/svg%3E">
+          <div class="caption">Night sky</div>
+        </div>
+
+      </div>
+
+      <button class="arrow prev" id="prev" aria-label="Previous image">&#10094;</button>
+      <button class="arrow next" id="next" aria-label="Next image">&#10095;</button>
+      <div class="dots" id="dots"></div>
+    </div>
+  </main>
+
+  <footer id="contact">
+    <h2>Contact Us</h2>
+    <p>Kathmandu, Nepal</p>
+  </footer>
+
+  <script>
+    const slider = document.querySelector('.slider');
+    const track = document.getElementById('slides');
+    const dotsBox = document.getElementById('dots');
+    const originals = [...track.children];
+    const total = originals.length;
+
+    // Clone slides at the end so the row always looks full and loops smoothly
+    originals.forEach(el => track.appendChild(el.cloneNode(true)));
+
+    let index = 0;
+    let timer = null;
+
+    // Dots
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('button');
+      d.className = 'dot';
+      d.setAttribute('aria-label', 'Go to image ' + (i + 1));
+      d.addEventListener('click', () => { go(i); restart(); });
+      dotsBox.appendChild(d);
+    }
+
+    function slideWidth() { return track.children[0].getBoundingClientRect().width; }
+
+    function setPos(animate) {
+      track.style.transition = animate ? 'transform 0.6s ease' : 'none';
+      track.style.transform = 'translateX(' + (-index * slideWidth()) + 'px)';
+      [...dotsBox.children].forEach((d, n) => d.classList.toggle('active', n === index % total));
+    }
+
+    function go(i) { index = i; setPos(true); }
+
+    function next() {
+      index++;
+      setPos(true);
+      if (index >= total) {            // reached the clones: jump back to the start unseen
+        setTimeout(() => { index = 0; setPos(false); }, 650);
+      }
+    }
+
+    function prev() {
+      if (index <= 0) {                // jump to the clones, then slide back one
+        index = total;
+        setPos(false);
+        track.getBoundingClientRect(); // force reflow
+      }
+      index--;
+      setPos(true);
+    }
+
+    function start() { timer = setInterval(next, 3500); }
+    function stop() { clearInterval(timer); }
+    function restart() { stop(); start(); }
+
+    document.getElementById('next').addEventListener('click', () => { next(); restart(); });
+    document.getElementById('prev').addEventListener('click', () => { prev(); restart(); });
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    window.addEventListener('resize', () => setPos(false));
+
+    setPos(false);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) start();
+  </script>
+
+</body>
+</html>
