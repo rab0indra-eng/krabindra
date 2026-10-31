@@ -68,8 +68,8 @@ if (document.querySelector('.slider')) {
 // 2. Put your channel link in channelUrl (for example https://www.youtube.com/@krabindra).
 const youtube = {
   title: 'My YouTube Channel',
-  channelId: 'YOUR_CHANNEL_ID',
-  channelUrl: 'https://www.youtube.com/@yourchannel'
+  channelId: 'UCseWNG6R3SNRFJbv3CHPWpA',
+  channelUrl: 'https://www.youtube.com/@RabindraKhadka-u5v'
 };
 
 function renderYoutube() {
