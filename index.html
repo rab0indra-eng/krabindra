@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Krabindra Personal Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="banner">
+    <h1>Krabindra Personal Blog</h1>
+  </header>
+
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <div class="slider" aria-label="Photo slideshow">
+      <div class="slides" id="slides">
+
+        <div class="slide">
+          <img alt="Snowy mountains" src="images/mountains.svg">
+          <div class="caption">Mountains</div>
+        </div>
+
+        <div class="slide">
+          <img alt="Sunset over hills" src="images/sunset.svg">
+          <div class="caption">Sunset</div>
+        </div>
+
+        <div class="slide">
+          <img alt="Calm lake" src="images/lake.svg">
+          <div class="caption">Lake</div>
+        </div>
+
+        <div class="slide">
+          <img alt="Night sky" src="images/night.svg">
+          <div class="caption">Night sky</div>
+        </div>
+
+      </div>
+
+      <button class="arrow prev" id="prev" aria-label="Previous image">&#10094;</button>
+      <button class="arrow next" id="next" aria-label="Next image">&#10095;</button>
+      <div class="dots" id="dots"></div>
+    </div>
+
+    <section class="page-content">
+      <h2>Welcome to My Blog</h2>
+      <p>Hello, I am Krabindra. This is my personal blog where I share my thoughts, stories and experiences from life in Kathmandu, Nepal.</p>
+      <p>Use the menu above to read more about me, browse my posts, see my photos or get in touch.</p>
+    </section>
+
+    <section class="youtube" id="youtube"></section>
+  </main>
+
+  <footer>
+    <h2>Contact Us</h2>
+    <p>Kathmandu, Nepal</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
